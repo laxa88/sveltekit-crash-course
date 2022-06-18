@@ -1,9 +1,8 @@
 <script lang="ts">
-	import Title from '$lib/title.svelte';
 </script>
 
 <div class="guides">
-	<Title title="Guides" />
+	<h2>Guides</h2>
 	<ul>
 		<li><a href="/">Guide 1</a></li>
 		<li><a href="/">Guide 2</a></li>

@@ -1,7 +1,5 @@
 <script>
-	import Title from '$lib/title.svelte';
-
-	let title = 'Ninja Gaming Guides';
+	let title = 'Welcome';
 
 	const setTitle = () => {
 		title = 'something completely different';
@@ -9,7 +7,7 @@
 </script>
 
 <div class="index">
-	<Title>{title}</Title>
+	<h2>{title}</h2>
 	<p>
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat eaque debitis excepturi impedit
 		et, perspiciatis optio dolorem similique exercitationem beatae voluptas, quisquam deserunt natus
