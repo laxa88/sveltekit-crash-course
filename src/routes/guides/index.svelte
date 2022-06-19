@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
 	import type { LoadEvent } from '@sveltejs/kit';
 
-	type Guide = {
+	export type Guide = {
 		body: string;
 		id: number;
 		title: string;
@@ -15,7 +15,6 @@
 		if (res.ok) {
 			return {
 				props: {
-					hello: 'hello!',
 					guides
 				}
 			};
@@ -36,7 +35,7 @@
 	<h2>Guides</h2>
 	<ul>
 		{#each guides as guide}
-			<li><a href="/">{guide.title}</a></li>
+			<li><a href={`/guides/${guide.id}`}>{guide.title}</a></li>
 		{/each}
 	</ul>
 </div>
