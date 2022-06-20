@@ -1,12 +1,19 @@
 <script context="module" lang="ts">
-	import type { LoadEvent } from '@sveltejs/kit';
+	import type { LoadEvent, LoadOutput } from '@sveltejs/kit';
 	import type { Guide } from './index.svelte';
 
 	type PageParams = {
 		id: string;
 	};
 
-	export async function load({ fetch, params }: LoadEvent<PageParams>) {
+	type PageProps = {
+		guide: Guide;
+	};
+
+	export async function load({
+		fetch,
+		params
+	}: LoadEvent<PageParams>): Promise<LoadOutput<PageProps>> {
 		const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`);
 		const guide = await res.json();
 
@@ -19,8 +26,8 @@
 		}
 
 		return {
-			status: res.status,
-			error: new Error('Could not fetch guide')
+			status: 301,
+			redirect: '/guides'
 		};
 	}
 </script>
