@@ -15,8 +15,10 @@
 		params
 	}: LoadEvent<PageParams>): Promise<LoadOutput<PageProps>> {
 		await new Promise((resolve) => setTimeout(resolve, 1000));
-		const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`);
-		const guide = await res.json();
+		// const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`);
+		// const guide = await res.json();
+		const res = await fetch(`/guides/${params.id}.json`);
+		const { guide } = await res.json();
 
 		if (res.ok) {
 			return {
